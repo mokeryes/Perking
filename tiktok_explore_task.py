@@ -20,6 +20,4 @@ def run():
             unique_ids = tiktok_explore(page=tiktok_page)
             print(unique_ids)
 
-        sleep(2000)
-
 run()
