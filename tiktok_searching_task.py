@@ -9,9 +9,9 @@ from playwright.sync_api import sync_playwright, Page
 from bs4 import BeautifulSoup
 from time import sleep
 
-from common import *
-from nox import *
-from tiktok import *
+from Common import *
+from NoxApi import *
+from TiktokApi import *
 
 
 def nox_handle(page: Page) -> list:

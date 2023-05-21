@@ -8,7 +8,7 @@
 
 import pandas as pd
 
-from common import *
+from Common import *
 
 
 def xlsx_data(filename: str):
