@@ -2,9 +2,6 @@
 一些工具函数
 """
 
-import sys
-from os.path import abspath, join, dirname
-sys.path.insert(0, join(abspath(dirname(__file__)), './'))
 
 from load_cookies import load_cookies
 from get_html import get_html

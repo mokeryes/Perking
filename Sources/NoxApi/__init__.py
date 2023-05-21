@@ -1,5 +1,4 @@
-from NoxApi.NoxApi
-import nox_run
+from NoxApi.NoxApi import nox_run
 
 __version__ = '1.0.0'
 

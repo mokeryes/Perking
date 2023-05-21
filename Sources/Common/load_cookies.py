@@ -2,8 +2,6 @@ import json
 import re
 import json
 
-from csv import DictReader
-
 
 def load_cookies(filename: str) -> dict:
     with open(filename, 'r') as f:
