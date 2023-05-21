@@ -1,3 +1,6 @@
+import module_config
+module_config.insert_path()
+
 from playwright.sync_api import sync_playwright, Page
 from bs4 import BeautifulSoup
 from time import sleep
