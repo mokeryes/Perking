@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 from playwright.sync_api import Page
 from time import sleep
 
-from Common.load_cookies import load_cookies
+from load_cookies import load_cookies
 
 def login_tiktok(page: Page) -> Page:
     """login tiktok home page using chrome.
@@ -15,7 +15,7 @@ def login_tiktok(page: Page) -> Page:
     url = 'https://www.tiktok.com'
 
     page.context.add_cookies(load_cookies(
-        'Resources/cookies/www.tiktok.com-mokerorg.cookies'
+        '../../Resources/cookies/www.tiktok.com-mokerorg.cookies'
         )
     )
 
