@@ -145,7 +145,7 @@ def rolling_page_down(page: Page) -> Page:
         page (Page): return the page which is rolled down.
     """
     page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
-    sleep(4)
+    sleep(15)
 
     return page
 
