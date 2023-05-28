@@ -56,15 +56,13 @@ def get_html(url: str) -> str:
     headers = _get_headers()
     if 'tiktok' in url:
         cookies = _get_cookies()
-
-    if cookies:
         session.cookies.update(cookies)
 
     for _ in range(3):
         try:
             print(f'[LOG] Connectting to {url}.')
             logging.info(f'[LOG] Connectting to {url}.')
-            response = session.get(url=url, headers=headers, cookies=cookies, timeout=(10, 10))
+            response = session.get(url=url, headers=headers, timeout=(10, 10))
 
             if response and len(response.text) > 4000:
                 print(f'[LOG] Connection with {url} successful!')
