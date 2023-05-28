@@ -1,13 +1,17 @@
-'''
-邮件收发
-'''
+#!/usr/bin/env python
+# -*- coding=utf8 -*-
+"""
+# @Author : Moker
+# @Created Time : 2023-05-28 19:04:24
+# @Description : 读取邮箱, 发送邮件
+"""
+
 
 import smtplib
 import imaplib
 import email
 import email.header
 import email.utils
-import html2text
 
 from time import sleep
 from email.mime.multipart import MIMEMultipart
@@ -56,7 +60,8 @@ def email_send(email_info: dict):
         'from_email': str,  # 发件箱，统一为 moker.lu@mails.perkinggroup.com
         'reply_to': str,    # 收件箱，可以任意设置，邮件推送出去之后对方回复信件的目标邮箱
         'password': str     # moker.lu@mails.perkinggroup.com 推送邮箱的密码
-        'to_email': str,    # 邮件的目标邮箱，也就是不同kol的邮箱
+        'to_email': str,    # 邮件的目标邮箱, 也就是不同kol的邮箱
+        'cc_email': str,    # 设置抄送邮箱
         'subject': str,     # 邮件主题
         'content': str      # 邮件内容
     }
@@ -67,12 +72,14 @@ def email_send(email_info: dict):
     reply_to = email_info['reply_to']
     password = email_info['password']
     to_email = email_info['to_email']
+    cc_email = email_info['cc_email']
     subject = email_info['subject']
     content = email_info['content']
 
     msg = MIMEMultipart()
     msg['From'] = from_email
     msg['To'] = to_email
+    msg['Cc'] = cc_email
     msg['Reply-to'] = reply_to
     msg['Subject'] = subject
     msg.attach(MIMEText(content, 'html'))
@@ -109,7 +116,10 @@ def email_send(email_info: dict):
         sleep(0.5)
 
         print(f'正在发送邮件：{from_email} -> {to_email}')
-        smtp_conn.sendmail(from_email, [to_email], msg.as_string())
+        if cc_email:
+            smtp_conn.sendmail(from_email, [to_email] + [cc_email], msg.as_string())
+        else:
+            smtp_conn.sendmail(from_email, [to_email], msg.as_string())
         smtp_conn.quit()
         sleep(0.5)
 

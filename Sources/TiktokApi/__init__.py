@@ -7,5 +7,6 @@ __all__ = [
     'tiktok_search',
     'rolling_page_down',
     'rolling_page_top',
-    'tiktok_explore'
+    'tiktok_explore',
+    'UserInfo'
 ]

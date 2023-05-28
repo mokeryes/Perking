@@ -8,6 +8,7 @@ from Common.get_html import get_html
 from Common.email_operate import email_send, email_read
 from Common.loading_animation import start_loading_thread, stop_loading_thread
 from Common.location import region, country
+from Common.KMBConvert import KMBConvert
 
 __version__ = '1.0.0'
 
@@ -16,5 +17,6 @@ __all__ = [
     'get_html',
     'email_send', 'email_read',
     'start_loading_thread', 'stop_loading_thread',
-    'region', 'country'
+    'region', 'country',
+    'KMBConvert'
 ]

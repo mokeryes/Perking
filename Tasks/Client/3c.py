@@ -3,7 +3,7 @@
 """
 # @Author : Moker
 # @Created Time : 2023-05-21 17:14:42
-# @Description : 
+# @Description : TikTok的3C建联任务
 """
 
 import module_config
@@ -144,6 +144,7 @@ def tt_run():
                     'reply_to': 'moker.lu@perkinggroup.com',
                     'password': '3021MOKERperking',
                     'to_email': user['email'],
+                    'cc_email': '',
                     'subject': \
                         "Partnership inquiry for TEMU app, Join TEMU's talent partner programme with 1000+ creators!",
                     'content': content

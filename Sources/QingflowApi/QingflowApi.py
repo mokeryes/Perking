@@ -1,5 +1,13 @@
+#!/usr/bin/env python
+# -*- coding=utf8 -*-
+"""
+# @Author : Moker
+# @Created Time : 2023-05-28 19:04:24
+# @Description : 登录轻流, 填写数据
+"""
+
+
 from playwright.sync_api import sync_playwright, Page
-from typing import Tuple
 from time import sleep
 from Common import *
 

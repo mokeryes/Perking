@@ -1,4 +1,11 @@
-# 从TikTok用户主页的HTML中解析数据
+#!/usr/bin/env python
+# -*- coding=utf8 -*-
+"""
+# @Author : Moker
+# @Created Time : 2023-05-28 19:04:24
+# @Description : 获取 TikTok用户数据, 并解析返回
+"""
+
 
 import json
 import logging
@@ -221,7 +228,7 @@ class UserInfo:
         if not biolink:
             return ""
 
-        html = get_html(url=self.biolink())
+        html = get_html(url=self.biolink(), cookies_file="")
         soup = BeautifulSoup(html, 'html.parser')
 
         # if mailto exist

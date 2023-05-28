@@ -1,6 +1,11 @@
-'''
-邮件发送
-'''
+#!/usr/bin/env python
+# -*- coding=utf8 -*-
+"""
+# @Author : Moker
+# @Created Time : 2023-05-28 19:04:24
+# @Description : 加载动画
+"""
+
 
 import sys
 import threading

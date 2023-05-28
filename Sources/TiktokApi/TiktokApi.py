@@ -1,3 +1,12 @@
+#!/usr/bin/env python
+# -*- coding=utf8 -*-
+"""
+# @Author : Moker
+# @Created Time : 2023-05-28 19:04:24
+# @Description : 登录TikTok, 执行操作
+"""
+
+
 from bs4 import BeautifulSoup
 from playwright.sync_api import Page
 from time import sleep
@@ -16,7 +25,8 @@ def login_tiktok(page: Page) -> Page:
     url = 'https://www.tiktok.com'
 
     page.context.add_cookies(load_cookies(
-        '../../Resources/cookies/www.tiktok.com-mokerorg.cookies'
+        # '../../Resources/cookies/www.tiktok.com-mokerorg.cookies'
+        '../../Resources/cookies/www.tiktok.com-lvthislv.cookies'
         )
     )
 
@@ -132,11 +142,11 @@ def tiktok_explore(page: Page) -> list:
         for unique_id in unique_ids_list:
             unique_ids.add(unique_id)
 
-        sleep(5)
+        sleep(3)
 
     return list(unique_ids)
 
-def rolling_page_down(page: Page) -> Page:
+def rolling_page_down(page: Page):
     """rolling tiktok page.
 
     args:
@@ -145,9 +155,7 @@ def rolling_page_down(page: Page) -> Page:
         page (Page): return the page which is rolled down.
     """
     page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
-    sleep(15)
-
-    return page
+    page.wait_for_load_state('networkidle')
 
 def rolling_page_top(page: Page) -> Page:
     """rolling page to top.

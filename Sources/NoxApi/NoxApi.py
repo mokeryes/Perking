@@ -1,4 +1,11 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
+# -*- coding=utf8 -*-
+"""
+# @Author : Moker
+# @Created Time : 2023-05-28 19:04:24
+# @Description : 用于爬取nox的信息
+"""
+
 
 import re
 

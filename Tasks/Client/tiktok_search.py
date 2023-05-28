@@ -3,10 +3,11 @@
 """
 # @Author : Moker
 # @Created Time : 2023-05-14 03:35:31
-# @Description : 
+# @Description : 从TikTok搜索用户
 """
+
+
 from playwright.sync_api import sync_playwright, Page
-from bs4 import BeautifulSoup
 from time import sleep
 
 from Common import *
@@ -56,7 +57,7 @@ def tiktok_handle(page: Page, keyword: str) -> list:
             print(e)
             break
 
-    with open('user_unique_ids.txt', '+a') as f:
+    with open('tiktok_search/searched_users.txt', '+a') as f:
         file_content = f.readlines()
 
         for user_unique_id in list(user_unique_ids):

@@ -3,7 +3,7 @@
 """
 # @Author : Moker
 # @Created Time : 2023-05-21 17:14:42
-# @Description : 
+# @Description :  TikTok的建联任务
 """
 
 import module_config
@@ -86,7 +86,7 @@ def email_content(email_config: dict, page: Page) -> Tuple[str, str]:
 
 def tt_run():
     # 读取达人数据
-    users = read_datas(filename='/Users/mokerl/Desktop/userlist.csv')
+    users = read_datas(filename='/Users/mokerl/Desktop/europe.csv')
 
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=False)
@@ -143,6 +143,7 @@ def tt_run():
                     'reply_to': 'moker.lu@perkinggroup.com',
                     'password': '3021MOKERperking',
                     'to_email': user['email'],
+                    'cc_email': '',
                     'subject': \
                         "Partnership inquiry for TEMU app, Join TEMU's talent partner programme with 1000+ creators!",
                     'content': content
