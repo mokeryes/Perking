@@ -98,7 +98,6 @@ def _tiktok_explore_page_unique_ids(page: Page) -> list:
         soup = BeautifulSoup(str(soup), 'html.parser')
         unique_id = soup.find('p', {'data-e2e': 'explore-card-user-unique-id'}).getText()
         unique_ids.append(unique_id)
-        print(unique_id)
 
     return unique_ids
 
@@ -127,10 +126,9 @@ def tiktok_explore(page: Page) -> list:
     other_mode_tail = ')'
 
     print(f'Exploring "{modes[0]}" now.')
-    _tiktok_explore_page_unique_ids(page=page)
+    unique_ids = set(_tiktok_explore_page_unique_ids(page=page))
 
     modes = modes[1:]
-    unique_ids = set()
 
     for mode_count, mode in enumerate(modes, start=2):
         other_mode_nth = mode_count
@@ -155,6 +153,7 @@ def rolling_page_down(page: Page):
         page (Page): return the page which is rolled down.
     """
     page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
+    sleep(3)
     page.wait_for_load_state('networkidle')
 
 def rolling_page_top(page: Page) -> Page:

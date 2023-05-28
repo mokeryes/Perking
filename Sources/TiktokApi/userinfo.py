@@ -228,7 +228,7 @@ class UserInfo:
         if not biolink:
             return ""
 
-        html = get_html(url=self.biolink(), cookies_file="")
+        html = get_html(url=self.biolink())
         soup = BeautifulSoup(html, 'html.parser')
 
         # if mailto exist

@@ -15,7 +15,7 @@ import logging
 from time import sleep
 
 
-def _get_cookies(platform: str) -> dict:
+def _get_cookies() -> dict:
     cookies = {}
 
     with open(f'../../Resources/cookies/www.tiktok.com-lvthislv.cookies', 'r') as f:
@@ -54,7 +54,8 @@ def get_html(url: str) -> str:
     session = requests.session()
 
     headers = _get_headers()
-    cookies = _get_cookies(platform=platfrom)
+    if 'tiktok' in url:
+        cookies = _get_cookies()
 
     if cookies:
         session.cookies.update(cookies)
