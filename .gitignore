@@ -1,3 +1,7 @@
+# 程序数据
+pic/*
+content/*
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
