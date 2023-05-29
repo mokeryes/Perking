@@ -34,7 +34,7 @@ logging.basicConfig(
     format='%(asctime)s %(levelname)s %(message)s'
 )
 
-def matched() -> set:
+def read_users(usersfile: str) -> set:
     with open('user_filter/MATCHED.txt', 'r') as f:
         old_users = [line.strip() for line in f.readlines()]
     
@@ -46,29 +46,15 @@ def matched() -> set:
 
     return set(new_users)
 
-def unmatch() -> set:
-    with open('user_filter/UNMATCH.txt', 'r') as f:
-        old_users = [line.strip() for line in f.readlines()]
-
-    new_users = set(old_users)
-    if len(new_users) < len(old_users):
-        with open('user_filter/UNMATCH.txt', 'w') as f:
-            for new_user in list(new_users):
-                f.write(new_user+'\n')
-
-    return set(new_users)
-
 def user_update(unique_id: str):
-    unmatch_users = unmatch()
+    unmatch_users = read_users(usersfile='user_filter/UNMATCH.txt')
 
     with open('user_filter/MATCHED.txt', '+a') as f:
         f.write(unique_id+'\n')
 
     with open('user_filter/UNMATCH.txt', 'w') as f:
         for user in list(unmatch_users):
-            if user == unique_id:
-                continue
-            else:
+            if user != unique_id:
                 f.write(user+'\n')
 
 def match_user(username: str, role: dict) -> bool:
@@ -160,11 +146,19 @@ def main(role: dict):
                  'heart', 'median_view', 'email', 'biolink', 'tags']
             )
 
+    # match 之前首先去除与 MATCHED.txt 中重复的数据
+    unmatch_users = read_users(usersfile='user_filter/UNMATCH.txt')
+    matched_users = read_users(usersfile='user_filter/MATCHED.txt')
+    new_unmatch_users = unmatch_users - matched_users
+    with open('user_filter/UNMATCH.txt', 'w') as f:
+        for user in list(new_unmatch_users):
+            f.write(user+'\n')
+
     current_count = 0
     while True:
         # 用户重复检查
-        unmatch_users = unmatch()
-        matched_users = matched()
+        unmatch_users = read_users(usersfile='user_filter/UNMATCH.txt')
+        matched_users = read_users(usersfile='user_filter/MATCHED.txt')
 
         user_list = unmatch_users - matched_users
         if not user_list:

@@ -25,8 +25,8 @@ def login_tiktok(page: Page) -> Page:
     url = 'https://www.tiktok.com'
 
     page.context.add_cookies(load_cookies(
-        # '../../Resources/cookies/www.tiktok.com-mokerorg.cookies'
-        '../../Resources/cookies/www.tiktok.com-lvthislv.cookies'
+        '../../Resources/cookies/www.tiktok.com-mokerorg.cookies'
+        # '../../Resources/cookies/www.tiktok.com-lvthislv.cookies'
         )
     )
 
