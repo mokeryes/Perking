@@ -86,7 +86,7 @@ def email_content(email_config: dict, page: Page) -> Tuple[str, str]:
 
 def tt_run():
     # 读取达人数据
-    users = read_datas(filename='/Users/mokerl/Desktop/europe.csv')
+    users = read_datas(filename='/Users/mokerl/Desktop/userlist.csv')
 
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=False)
