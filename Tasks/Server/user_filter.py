@@ -16,6 +16,7 @@ import logging
 
 from random import choice
 from datetime import datetime, timedelta
+from time import sleep
 
 from TiktokApi import UserInfo
 from Common import KMBConvert, get_html
@@ -35,16 +36,10 @@ logging.basicConfig(
 )
 
 def read_users(usersfile: str) -> set:
-    with open('user_filter/MATCHED.txt', 'r') as f:
-        old_users = [line.strip() for line in f.readlines()]
+    with open(usersfile, 'r') as f:
+        users = [line.strip() for line in f.readlines()]
     
-    new_users = set(old_users)
-    if len(new_users) < len(old_users):
-        with open('user_filter/UNMATCH.txt', 'w') as f:
-            for new_user in list(new_users):
-                f.write(new_user+'\n')
-
-    return set(new_users)
+    return set(users)
 
 def user_update(unique_id: str):
     unmatch_users = read_users(usersfile='user_filter/UNMATCH.txt')
@@ -169,11 +164,17 @@ def main(role: dict):
             break
 
         tiktokuser = choice(list(user_list))
-        user_update(unique_id=tiktokuser)
 
-        # 开始match
-        if match_user(username=tiktokuser, role=ROLE):
-            current_count += 1
+        while True:
+            try:
+                # 开始match
+                if match_user(username=tiktokuser, role=ROLE):
+                    current_count += 1
+                user_update(unique_id=tiktokuser)
+                break
+            except Exception as e:
+                print(f"Let's take a break! {e}")
+                sleep(30)
 
         print(f"[{current_count}]")
 
