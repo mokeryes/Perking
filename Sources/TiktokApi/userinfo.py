@@ -83,6 +83,9 @@ class UserInfo:
         for video_id in video_id_list:
             region_list.append(self.data.get('ItemModule', {}).get(video_id, {}).get('locationCreated'))
 
+        if len(region_list) == 0:
+            return ''
+
         counter = Counter(region_list)
         region = counter.most_common(1)[0][0]
     
@@ -254,11 +257,11 @@ class UserInfo:
 
 
 if __name__ == "__main__":
-    try:
-        with open("therock.html", "r") as f:
-            html = f.read()
-        f.close()
+    import requests
 
+    html = requests.get('https://www.tiktok.com/@elsalout').text
+
+    try:
         user = UserInfo(html=html)
 
         video_type = user.tags()

@@ -76,6 +76,10 @@ def match_user(username: str, role: dict) -> bool:
     median_view = user.median_view()
     tags = user.tags()
 
+    if not region:
+        print(f'{username} 为私密账号.')
+        return False
+
     print(
         f'update: {formatted_time}\n',
         f'username: {username}\n',
