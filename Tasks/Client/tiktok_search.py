@@ -83,7 +83,40 @@ def run():
              'web development', 'graphic design', 'video editing', 'photography', 'vlogging', 
              'influencer', 'content creator'
         ]
-        keywords_2 = ['wearable technology', 'fitness tracker', 'smartwatch', 'smart glasses', 'virtual assistant', 'wireless charger', 'power bank', 'USB hub', 'external hard drive', 'memory card', 'printer', 'monitor', 'keyboard', 'mouse', 'webcam', 'microphone', 'speaker', 'smart speaker', 'voice assistant', 'home assistant', 'smart lock', 'security camera', 'alarm system', 'thermostat', 'smart thermostat', 'electric vehicle', 'electric car', 'hybrid car', 'solar panel', 'smart home technology', 'home automation', 'smart lighting', 'LED lighting', 'smart TV', 'streaming device', 'media player', 'virtual keyboard', 'wireless headphones', 'Bluetooth headset', 'noise-cancelling headphones', 'gaming chair', 'ergonomic chair', 'standing desk', 'ergonomic desk', 'VR headset', 'AR headset', 'smart scale', 'smart mirror', 'smart kitchen', 'smart appliances', 'smart coffee maker', 'smart refrigerator', 'smart oven', 'smart microwave', 'smart blender', 'smart water bottle', 'smart thermostat', 'smart air purifier', 'smart humidifier', 'smart vacuum cleaner', 'smart lawn mower', 'smart bike', 'smart home security', 'smart doorbell', 'smart garage door opener', 'smart smoke detector', 'smart carbon monoxide detector', 'smart water leak detector', 'smart sprinkler system', 'smart pet feeder', 'smart pet door', 'smart baby monitor', 'smart bed', 'smart pillow', 'smart lighting control', 'smart thermostat control', 'smart home hub', 'smart remote control', 'smart plug', 'smart switch', 'smart outlet', 'smart door lock', 'smart window shades', 'smart blinds', 'smart garden', 'smart plant pot', 'smart irrigation system', 'smart pool', 'smart shower', 'smart toothbrush', 'smart skincare', 'smart hair care', 'smart hairbrush', 'smart mirror', 'smart fashion', 'smart clothing', 'smart jewelry', 'smart backpack', 'smart luggage', 'smart bike lock', 'smart bike helmet', 'smart wallet', 'smart credit card', 'smart glasses', 'smart contact lens', 'smart ring', 'smart tattoo', 'smart home insurance', 'smart city', 'smart grid', 'smart building', 'smart office', 'smart factory', 'smart agriculture', 'smart transportation', 'smart logistics', 'smart waste management', 'smart recycling', 'smart healthcare', 'smart hospital', 'smart medicine', 'smart pharmacy', 'smart fitness', 'smart sports', 'smart coaching', 'smart nutrition', 'smart wellness', 'smart beauty', 'smart aging', 'smart sleep', 'smart education', 'smart learning', 'smart e-learning', 'smart school', 'smart campus', 'smart library', 'smart museum', 'smart tourism', 'smart city tourism', 'smart travel', 'smart hotel', 'smart hospitality', 'smart restaurant', 'smart food', 'smart agriculture', 'smart farming', 'smart forestry', 'smart fishing', 'smart mining', 'smart energy', 'smart power', 'smart grid', 'smart home energy management', 'smart meter', 'smart city energy', 'smart water', 'smart waste', 'smart recycling', 'smart green', 'smart sustainability']
+        keywords_2 = ['wearable technology', 'fitness tracker', 'smartwatch', 'smart glasses', 
+                      'virtual assistant', 'wireless charger', 'power bank', 'USB hub', 'external hard drive', 
+                      'memory card', 'printer', 'monitor', 'keyboard', 'mouse', 'webcam', 'microphone', 
+                      'speaker', 'smart speaker', 'voice assistant', 'home assistant', 'smart lock', 
+                      'security camera', 'alarm system', 'thermostat', 'smart thermostat', 'electric vehicle', 
+                      'electric car', 'hybrid car', 'solar panel', 'smart home technology', 'home automation', 
+                      'smart lighting', 'LED lighting', 'smart TV', 'streaming device', 'media player', 
+                      'virtual keyboard', 'wireless headphones', 'Bluetooth headset', 'noise-cancelling headphones', 
+                      'gaming chair', 'ergonomic chair', 'standing desk', 'ergonomic desk', 'VR headset', 
+                      'AR headset', 'smart scale', 'smart mirror', 'smart kitchen', 'smart appliances', 
+                      'smart coffee maker', 'smart refrigerator', 'smart oven', 'smart microwave', 
+                      'smart blender', 'smart water bottle', 'smart thermostat', 'smart air purifier', 
+                      'smart humidifier', 'smart vacuum cleaner', 'smart lawn mower', 'smart bike', 
+                      'smart home security', 'smart doorbell', 'smart garage door opener', 'smart smoke detector', 
+                      'smart carbon monoxide detector', 'smart water leak detector', 'smart sprinkler system', 
+                      'smart pet feeder', 'smart pet door', 'smart baby monitor', 'smart bed', 'smart pillow', 
+                      'smart lighting control', 'smart thermostat control', 'smart home hub', 'smart remote control', 
+                      'smart plug', 'smart switch', 'smart outlet', 'smart door lock', 'smart window shades', 
+                      'smart blinds', 'smart garden', 'smart plant pot', 'smart irrigation system', 'smart pool', 
+                      'smart shower', 'smart toothbrush', 'smart skincare', 'smart hair care', 'smart hairbrush', 
+                      'smart mirror', 'smart fashion', 'smart clothing', 'smart jewelry', 'smart backpack', 
+                      'smart luggage', 'smart bike lock', 'smart bike helmet', 'smart wallet', 'smart credit card', 
+                      'smart glasses', 'smart contact lens', 'smart ring', 'smart tattoo', 'smart home insurance', 
+                      'smart city', 'smart grid', 'smart building', 'smart office', 'smart factory', 'smart agriculture', 
+                      'smart transportation', 'smart logistics', 'smart waste management', 'smart recycling', 
+                      'smart healthcare', 'smart hospital', 'smart medicine', 'smart pharmacy', 'smart fitness', 
+                      'smart sports', 'smart coaching', 'smart nutrition', 'smart wellness', 'smart beauty', 
+                      'smart aging', 'smart sleep', 'smart education', 'smart learning', 'smart e-learning', 
+                      'smart school', 'smart campus', 'smart library', 'smart museum', 'smart tourism', 
+                      'smart city tourism', 'smart travel', 'smart hotel', 'smart hospitality', 'smart restaurant', 
+                      'smart food', 'smart agriculture', 'smart farming', 'smart forestry', 'smart fishing', 
+                      'smart mining', 'smart energy', 'smart power', 'smart grid', 'smart home energy management', 
+                      'smart meter', 'smart city energy', 'smart water', 'smart waste', 'smart recycling', 
+                      'smart green', 'smart sustainability']
         nicknames = keywords_1 + keywords_2
 
         # tiktok handle

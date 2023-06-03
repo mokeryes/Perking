@@ -164,7 +164,8 @@ class UserInfo:
         """
         获取用户视频类型
         """
-        type_set = set()
+        temp_list = []
+        type_list = []
 
         if not self.json_state:
             return type_set
@@ -172,9 +173,17 @@ class UserInfo:
         item_module = self.data.get("ItemModule", {})
         for item in item_module.values():
             labels = item.get("diversificationLabels", [])
-            type_set.update(labels)
+            for label in labels:
+                temp_list.append(label)
 
-        return list(type_set)
+        # 寻找出现次数最多的四个tag
+        counter = Counter(temp_list)
+        most_common = counter.most_common(5)
+
+        for item in most_common:
+            type_list.append(item[0])
+
+        return list(type_list)
 
     def biolink(self) -> str:
         """
@@ -257,9 +266,9 @@ class UserInfo:
 
 
 if __name__ == "__main__":
-    import requests
-
-    html = requests.get('https://www.tiktok.com/@elsalout').text
+    with open('elsalout.html', 'r') as f:
+        html = f.read()
+    soup = BeautifulSoup(html, 'html.parser')
 
     try:
         user = UserInfo(html=html)
