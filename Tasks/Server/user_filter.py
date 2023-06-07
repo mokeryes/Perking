@@ -17,16 +17,17 @@ import logging
 from random import choice
 from datetime import datetime, timedelta
 from time import sleep
+from terminaltables import SingleTable
 
 from TiktokApi import UserInfo
 from Common import KMBConvert, get_html
 
 
 ROLE = {
-    "FRBEGIN": "20K",
+    "FRBEGIN": "50K",
     "FREND": "20M",
     "HTMIN": "6K",
-    "VRMIN": "6K",
+    "VRMIN": "20K",
 }
 
 logging.basicConfig(
@@ -80,17 +81,31 @@ def match_user(username: str, role: dict) -> bool:
         print(f'{username} 为私密账号.')
         return False
 
-    print(
-        f'update: {formatted_time}\n',
-        f'username: {username}\n',
-        f'email: {email}\n',
-        f'region: {region}\n',
-        f'biolink: {biolink}\n',
-        f'follower count: {follower_count}\n',
-        f'heart count: {heart_count}\n',
-        f'median view: {median_view}\n',
-        f'tags: {tags}'
-    )
+    data = [
+        ['update', formatted_time],
+        ['unique id', username],
+        ['email', email],
+        ['region', region],
+        ['biolink', biolink],
+        ['follower_count', follower_count],
+        ['heart_count', heart_count],
+        ['median_view', median_view],
+        ['tags', tags]
+    ]
+    usertable = SingleTable(data)
+    print(usertable.table)
+
+#     print(
+#         f'update: {formatted_time}\n',
+#         f'username: {username}\n',
+#         f'email: {email}\n',
+#         f'region: {region}\n',
+#         f'biolink: {biolink}\n',
+#         f'follower count: {follower_count}\n',
+#         f'heart count: {heart_count}\n',
+#         f'median view: {median_view}\n',
+#         f'tags: {tags}'
+#     )
 
     user_valid = True
 

@@ -160,7 +160,7 @@ class UserInfo:
 
         return video_count
 
-    def tags(self) -> list:
+    def tags(self) -> set():
         """
         获取用户视频类型
         """
@@ -168,7 +168,7 @@ class UserInfo:
         type_list = []
 
         if not self.json_state:
-            return type_set
+            return set()
 
         item_module = self.data.get("ItemModule", {})
         for item in item_module.values():

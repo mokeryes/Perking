@@ -80,7 +80,8 @@ def _tiktok_explore_page_unique_ids(page: Page) -> list:
     container_html_length = 0
 
     while True:
-        rolling_page_down(page=page)
+        for _ in range(3):
+            rolling_page_down(page=page)
 
         container_html = page.locator(user_container).inner_html()
         if len(container_html) == container_html_length:
