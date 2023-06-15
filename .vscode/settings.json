@@ -1,9 +1,0 @@
-{
-    "python.analysis.extraPaths": [
-        "./Sources/Common",
-        "./Sources/TiktokApi",
-        "./Sources/QingflowApi",
-        "./Sources/NoxApi",
-        "./Sources"
-    ]
-}
